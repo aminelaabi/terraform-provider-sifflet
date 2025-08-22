@@ -1,15 +1,16 @@
 # Terraform Provider testing workflow.
 name: Tests
 
-# This GitHub action runs your tests for each pull request and push.
-# Optionally, you can turn it on using a schedule for regular testing.
 on:
+  # Run acceptance tests on pull requests
+  # (not including "push" event to avoid duplicated jobs)
   pull_request:
     paths-ignore:
       - "README.md"
-  push:
-    paths-ignore:
-      - "README.md"
+  # To catch potential regressions in the API that impact
+  # this Terraform provider, also run tests on a weekly schedule.
+  schedule:
+    - cron: "17 22 * * 0"
 
 # Testing only needs permissions to read the repository contents.
 permissions:
@@ -30,9 +31,9 @@ jobs:
       - run: go mod download
       - run: go build -v .
       - name: Run linters
-        uses: golangci/golangci-lint-action@a4f60bb28d35aeee14e6880718e0c85ff1882e64 # v6.0.1
+        uses: golangci/golangci-lint-action@20869830fbbc2eb6a8081ce3b0874bd470797b2c # v8.0.0
         with:
-          version: v1.60.1
+          version: v2.1
 
   generate:
     runs-on: ubuntu-latest
@@ -72,8 +73,9 @@ jobs:
           # the oldest and latest support versions is enough.
           # - "1.7.*"
           # - "1.8.*"
+          # - "1.9.*"
           # Latest
-          - "1.9.*"
+          - "1.10.*"
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - uses: actions/setup-go@cdcb36043654635271a94b9a6d1392de5bb323a7 # v5.0.1

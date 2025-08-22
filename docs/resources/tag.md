@@ -4,14 +4,14 @@ page_title: "sifflet_tag Resource - terraform-provider-sifflet"
 subcategory: ""
 description: |-
   Tags are used to classify data in Sifflet.
-  	This resource manages 'regular' tags. See the [Sifflet documentation](https://docs.siffletdata.com/docs/tags) for more about tag types.",
+  This resource manages 'regular' tags. See the Sifflet documentation https://docs.siffletdata.com/docs/tags for more about tag types.",
 ---
 
 # sifflet_tag (Resource)
 
 Tags are used to classify data in Sifflet.
 
-		This resource manages 'regular' tags. See the [Sifflet documentation](https://docs.siffletdata.com/docs/tags) for more about tag types.",
+This resource manages 'regular' tags. See the [Sifflet documentation](https://docs.siffletdata.com/docs/tags) for more about tag types.",
 
 ## Example Usage
 
@@ -40,6 +40,8 @@ resource "sifflet_tag" "super_tag" {
 ## Import
 
 Import is supported using the following syntax:
+
+The [`terraform import` command](https://developer.hashicorp.com/terraform/cli/commands/import) can be used, for example:
 
 ```shell
 terraform import sifflet_tag.example 'ad7b0951-318c-4950-932b-4614621b9bed'

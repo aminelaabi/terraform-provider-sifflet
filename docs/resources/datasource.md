@@ -3,12 +3,12 @@
 page_title: "sifflet_datasource Resource - terraform-provider-sifflet"
 subcategory: ""
 description: |-
-  Create a Sifflet data source. Deprecated: this resource relies on unstable APIs that may change in the future, and doesn't support all Sifflet source types. Use the sifflet_source resource instead.
+  Create a Sifflet data source. Deprecated: this resource relies on unstable APIs that may change in the future, and doesn't support all Sifflet source types. Use the sifflet_source resource instead. You can use a move block to migrate your current resources to sifflet_source.
 ---
 
 # sifflet_datasource (Resource)
 
-Create a Sifflet data source. **Deprecated: this resource relies on unstable APIs that may change in the future, and doesn't support all Sifflet source types. Use the `sifflet_source` resource instead**.
+Create a Sifflet data source. **Deprecated: this resource relies on unstable APIs that may change in the future, and doesn't support all Sifflet source types. Use the `sifflet_source` resource instead**. You can use a `move` block to migrate your current resources to `sifflet_source`.
 
 ## Example Usage
 
@@ -166,6 +166,8 @@ Required:
 ## Import
 
 Import is supported using the following syntax:
+
+The [`terraform import` command](https://developer.hashicorp.com/terraform/cli/commands/import) can be used, for example:
 
 ```shell
 terraform import sifflet_datasource.example 'ad7b0951-318c-4950-932b-4614621b9bed'
